@@ -1,17 +1,12 @@
 import { DataPoint } from "./DataPoint";
 
-abstract class Quadrilateral {
-    public x1: number;
-    public x2: number;
-    public y1: number;
-    public y2: number;
-
-    constructor(x1, y1, x2, y2) {
-        this.x1 = x1
-        this.x2 = x2
-        this.y1 = y1
-        this.y2 = y2
-    }
+class Quadrilateral {
+    constructor(
+        public x1: number, 
+        public y1: number,
+        public x2: number,
+        public y2: number,
+    ) { }
 }
 
 export class Rectangle extends Quadrilateral {
@@ -23,7 +18,8 @@ export class Rectangle extends Quadrilateral {
             y2 != undefined ? y2 : Number.NEGATIVE_INFINITY)
     }
 
-    contains(point:DataPoint): boolean {
+    contains(point: DataPoint): boolean {
+        // @TODO
         return false
     }
 }

@@ -9,7 +9,7 @@ class DataSet {
          
         const rows = parse(csvString, {delimiter: ';'})
 
-        rows.forEach(row => {
+        rows.forEach((row: string[]) => {
             let point = new DataPoint(parseFloat(row[0]), parseFloat(row[1]))
             points.push(point)
         });

@@ -1,15 +1,14 @@
 import { DataPoint } from "../src/DataPoint";
 import DataSet from "../src/DataSet";
 import { Rectangle } from "../src/Rectangle"
-import { PointConsumer } from "../src/PointConsumer";
 import { BruteForceAreaFinder } from "../src/BruteForceAreaFinder";
 import { AreaFinder } from "../src/AreaFinder";
 
 const DATASET_CSV = "dataset.csv"
 const EXPECTED_DATASET_CSV = "expected_dataset.csv"
 
-let dataset;
-let expectedResult;
+let dataset: DataPoint[];
+let expectedResult: DataPoint[];
 let rect: Rectangle;
 
 beforeAll(() => {
@@ -23,22 +22,7 @@ test('Brute Force Area Finder', () => {
 })
 
 const loadDataset = (areaFinder: AreaFinder) => {
-    const collector: PointCollector = new PointCollector();
-    areaFinder.findPointsInside(rect, collector);
-    let actualResult: DataPoint[] = collector.getConsumedPoints();
-    expect(actualResult).toStrictEqual(expectedResult)
+    const pointsWithin: DataPoint[] = [];
+    areaFinder.findPointsInside(rect, pointsWithin);
+    expect(pointsWithin).toStrictEqual(expectedResult)
 }
-
-class PointCollector implements PointConsumer {
-    results: DataPoint[] = []
-
-    public consumePoint(point: DataPoint) {
-        // todo: implement
-    }
-
-    public getConsumedPoints() {
-        return this.results
-    }
-}
-
-

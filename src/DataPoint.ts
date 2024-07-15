@@ -1,18 +1,13 @@
 export class DataPoint {
-    private EPSILON = 0.000001;
-    x: any;
-    y: any;
+    constructor(
+        public x: number,
+        public y: number,
+    ) { }
 
-    constructor(x: number, y: number)
-    {
-        this.x = x;
-        this.y = y;
-    }
-
-    Equals(value: any): boolean {
+    equals(value: any): boolean {
         if (value instanceof DataPoint)  {
-            var that = value as DataPoint
-            return Math.abs(this.x - that.x) < this.EPSILON && Math.abs(this.y - that.y) < this.EPSILON;
+            const that = value as DataPoint
+            return this.x == that.x && this.y == that.y;
         }
         return false
     }

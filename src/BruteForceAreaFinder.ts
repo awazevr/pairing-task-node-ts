@@ -1,6 +1,5 @@
 import { AreaFinder } from "./AreaFinder";
 import { DataPoint } from "./DataPoint";
-import { PointConsumer } from "./PointConsumer";
 import { Rectangle } from "./Rectangle";
 
 export class BruteForceAreaFinder implements AreaFinder {
@@ -14,7 +13,7 @@ export class BruteForceAreaFinder implements AreaFinder {
         this.fullDataSet = dataPoints
     }
 
-    public findPointsInside(rect: Rectangle, consumer: PointConsumer) {
-         // TODO: implement
+    public findPointsInside(rect: Rectangle, pointsWithinRectangle: DataPoint[]) {
+        // @TODO
     }
 }

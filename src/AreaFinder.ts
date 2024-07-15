@@ -1,6 +1,6 @@
-import { PointConsumer } from "./PointConsumer";
+import { DataPoint } from "./DataPoint";
 import { Rectangle } from "./Rectangle";
 
 export interface AreaFinder {
-    findPointsInside(rect: Rectangle, consumer: PointConsumer): void;
+    findPointsInside(rect: Rectangle, pointsWithinRectangle: DataPoint[]): void;
 }
